@@ -1,0 +1,258 @@
+Notebook[{Cell[
+BoxData[{RowBox[{RowBox[{"A",":=",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","1",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}]}],"}"}]}],";"}],"\n",RowBox[
+{RowBox[{"B",":=",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","1",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}]}],"}"}]}],";"}],"\n",RowBox[{RowBox[
+{"K",":=",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","1",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","1",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}]}],"}"}]}],";"}],"\n",RowBox[{RowBox[
+{"edgeI",":=",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"1",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","0",",","1"}],"}"}]}],"}"}]}],";"}],"\n",RowBox[{RowBox[
+{"H",":=",RowBox[{"A","+","B"}]}],";"}],"\n",RowBox[{RowBox[{RowBox[{"trott","[",RowBox[
+{"A_",",","B_",",","r_",",","t_"}],"]"}],":="," ",RowBox[{RowBox[{"(",RowBox[{RowBox[
+{"(",RowBox[{RowBox[{"IdentityMatrix","[","4","]"}],"-",RowBox[{"i","*","t","*",RowBox[
+{"A","/",RowBox[{"(",RowBox[{"2","*","r"}],")"}]}]}]}],")"}],".",RowBox[{"(",RowBox[
+{RowBox[{"IdentityMatrix","[","4","]"}],"-",RowBox[{"i","*","t","*",RowBox[{"B","/",RowBox[
+{"(","r",")"}]}]}]}],")"}],".",RowBox[{"(",RowBox[{RowBox[{"IdentityMatrix","[","4","]"}],"-",RowBox[
+{"i","*","t","*",RowBox[{"A","/",RowBox[{"(",RowBox[{"2","*","r"}],")"}]}]}]}],")"}]}],")"}],"^","r"}]}],";"}],"\n",RowBox[
+{RowBox[{RowBox[{"u","[",RowBox[{"A_",",","B_",",","t_"}],"]"}],":="," ",RowBox[{"edgeI","+",RowBox[
+{RowBox[{"Cos","[","t","]"}],"*","K"}],"-",RowBox[{"i","*",RowBox[{"Sin","[","t","]"}],"*",RowBox[
+{"(",RowBox[{"A","+","B"}],")"}]}]}]}],";"}],"\n",RowBox[{RowBox[{RowBox[{"error","[",RowBox[
+{"A_",",","B_",",","r_",",","t_"}],"]"}],":="," ",RowBox[{RowBox[{"(",RowBox[{"Abs","[",RowBox[
+{"ComplexExpand","[",RowBox[{RowBox[{"u","[",RowBox[{"A",",","B",",","t"}],"]"}],"-",RowBox[
+{"trott","[",RowBox[{"A",",","B",",","r",",","t"}],"]"}]}],"]"}],"]"}],")"}],"^","2"}]}],";"}],"\n",RowBox[
+{RowBox[{"rms","[",RowBox[{"r_",",","t_"}],"]"}],":=",RowBox[{RowBox[{"(",RowBox[
+{"1","/","4"}],")"}],"*",RowBox[{"Sqrt","[",RowBox[{"Total","[",RowBox[{RowBox[{"error","[",RowBox[
+{"A",",","B",",","r",",","t"}],"]"}],",","2"}],"]"}],"]"}]}]}]}],"Input",CellLabel -> "In[235]:= ",
+ExpressionUUID -> "8c40869c-af51-4802-ad77-f99845582d41"],Cell[
+CellGroupData[{Cell[
+BoxData[
+RowBox[{"u","[",RowBox[{"A",",","B",",","t"}],"]"}]],"Input",CellLabel -> "In[244]:= ",
+ExpressionUUID -> "e5a402d2-9e2a-4750-868e-0148158d40af"],Cell[
+BoxData[RowBox[{"{",RowBox[
+{RowBox[{"{",RowBox[{"1",",","0",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",",RowBox[
+{"Cos","[","t","]"}],",",RowBox[{RowBox[{"-","i"}]," ",RowBox[{"Sin","[","t","]"}]}],",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",",RowBox[{RowBox[{"-","i"}]," ",RowBox[{"Sin","[","t","]"}]}],",",RowBox[
+{"Cos","[","t","]"}],",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","1"}],"}"}]}],"}"}],
+StandardForm],"Output",CellLabel -> "Out[244]= ",ExpressionUUID -> "b7b8146c-78ac-450e-ba0f-491197f3d593"]},
+Open],ExpressionUUID -> "9c3d0248-15c9-4771-90f7-107abda5aa34"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"DecimalForm","[",RowBox[{"MatrixForm","[",RowBox[{"error","[",RowBox[
+{"A",",","B",",","2",",","0.5"}],"]"}],"]"}],"]"}]],"Input",CellLabel -> "In[250]:= ",
+ExpressionUUID -> "cd7f6602-a2ad-4a0c-b1d2-cdfb22f549e4"],Cell[
+BoxData[TagBox[TagBox[
+RowBox[{"(","\[NoBreak]",GridBox[{{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"-0.122417\"",ShowStringCharacters -> False],-0.12241743810962724`,
+AutoDelete -> True],"+",RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[{InterpretationBox[
+StyleBox["\"0.0625\"",ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.000976563\"",ShowStringCharacters -> False],9.765625`*^-4,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.479426\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"-",RowBox[{InterpretationBox[StyleBox["\"0.0625\"",
+ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox["i",
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]],InterpretationBox[
+StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]},{InterpretationBox[
+StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[{InterpretationBox[StyleBox["\"0.\"",
+ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[{InterpretationBox[
+StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.479426\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"-",RowBox[{InterpretationBox[StyleBox["\"0.0625\"",
+ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox["i",
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.00195313\"",ShowStringCharacters -> False],0.001953125`,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}],"-",RowBox[{InterpretationBox[StyleBox["\"0.0000152588\"",
+ShowStringCharacters -> False],1.52587890625`*^-5,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"6\"",ShowStringCharacters -> False],6,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]],SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{InterpretationBox[StyleBox["\"-0.122417\"",ShowStringCharacters -> False],
+-0.12241743810962724`,AutoDelete -> True],"-",RowBox[{InterpretationBox[StyleBox[
+"\"0.0625\"",ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.000976563\"",ShowStringCharacters -> False],9.765625`*^-4,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]},{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]}},RowSpacings -> 1,ColumnSpacings -> 1,RowAlignments -> Baseline,
+ColumnAlignments -> Center],"\[NoBreak]",")"}],Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],
+DecimalForm],StandardForm],"Output",CellLabel -> "Out[250]//DecimalForm= ",ExpressionUUID -> "b3dc5462-e9b7-4b96-bf9c-fd1de7a62d6c"]},
+Open],ExpressionUUID -> "6b559a29-63ac-481d-9957-d36af38aaf33"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"DecimalForm","[",RowBox[{RowBox[{"rms","[",RowBox[{"1",",","0.5"}],"]"}],","," ","4"}],"]"}]],
+"Input",CellLabel -> "In[254]:= ",ExpressionUUID -> "edad9589-e0f3-42d8-a3b5-33528d181b3c"],Cell[
+BoxData[
+TagBox[RowBox[{FractionBox[InterpretationBox[StyleBox["\"1\"",ShowStringCharacters -> False],
+1,Editable -> False],InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]," ",SqrtBox[RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.02057\"",ShowStringCharacters -> False],0.020574461395796995`,
+AutoDelete -> True]," ","i"}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],"+",RowBox[{InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]," ",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"-0.1224\"",ShowStringCharacters -> False],-0.12241743810962724`,
+AutoDelete -> True],"+",RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[{InterpretationBox[
+StyleBox["\"0.125\"",ShowStringCharacters -> False],0.125`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[{InterpretationBox[StyleBox["\"0.\"",
+ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[{InterpretationBox[
+StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.02057\"",ShowStringCharacters -> False],0.020574461395796995`,
+AutoDelete -> True]," ","i"}],"+",RowBox[{InterpretationBox[StyleBox["\"0.03125\"",
+ShowStringCharacters -> False],0.03125`,AutoDelete -> True]," ",SuperscriptBox["i",
+InterpretationBox[StyleBox["\"3\"",ShowStringCharacters -> False],3,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]]}],
+Function[DecimalForm[Slot[1],4]]],StandardForm],"Output",CellLabel -> "Out[254]//DecimalForm= ",
+ExpressionUUID -> "2e1acae3-65c5-44ee-8428-c3aac5afcdae"]},Open],ExpressionUUID -> "787b6534-fd8e-428f-b436-8faddf49546c"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"DecimalForm","[",RowBox[{RowBox[{"rms","[",RowBox[{"2",",","0.5"}],"]"}],","," ","4"}],"]"}]],
+"Input",CellLabel -> "In[255]:= ",ExpressionUUID -> "b482e78a-fbc4-4cf3-b23b-6a7330074137"],Cell[
+BoxData[
+TagBox[RowBox[{FractionBox[InterpretationBox[StyleBox["\"1\"",ShowStringCharacters -> False],
+1,Editable -> False],InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]," ",SqrtBox[RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.4794\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"-",RowBox[{InterpretationBox[StyleBox["\"0.0625\"",
+ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox["i",
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{InterpretationBox[StyleBox["\"-0.1224\"",ShowStringCharacters -> False],
+-0.12241743810962724`,AutoDelete -> True],"-",RowBox[{InterpretationBox[StyleBox[
+"\"0.0625\"",ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.0009766\"",ShowStringCharacters -> False],9.765625`*^-4,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"-0.1224\"",ShowStringCharacters -> False],-0.12241743810962724`,
+AutoDelete -> True],"+",RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[{InterpretationBox[
+StyleBox["\"0.0625\"",ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.0009766\"",ShowStringCharacters -> False],9.765625`*^-4,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.4794\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"-",RowBox[{InterpretationBox[StyleBox["\"0.0625\"",
+ShowStringCharacters -> False],0.0625`,AutoDelete -> True]," ",SuperscriptBox["i",
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.001953\"",ShowStringCharacters -> False],0.001953125`,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}],"-",RowBox[{InterpretationBox[StyleBox["\"0.00001526\"",ShowStringCharacters -> False],
+1.52587890625`*^-5,AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox[
+"\"6\"",ShowStringCharacters -> False],6,Editable -> False]]}]}],"]"}],InterpretationBox[
+StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]]}],Function[
+DecimalForm[Slot[1],4]]],StandardForm],"Output",CellLabel -> "Out[255]//DecimalForm= ",
+ExpressionUUID -> "c25d0114-400c-4af8-9d4f-9cfcb77fb03a"]},Open],ExpressionUUID -> "cbcfecec-e397-4979-b1ab-537d7212938b"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"DecimalForm","[",RowBox[{"rms","[",RowBox[{"3",",","0.5"}],"]"}],"]"}]],
+"Input",CellLabel -> "In[256]:= ",ExpressionUUID -> "d50c5d16-eb7b-475c-930e-982394adca9a"],Cell[
+BoxData[
+TagBox[RowBox[{FractionBox[InterpretationBox[StyleBox["\"1\"",ShowStringCharacters -> False],
+1,Editable -> False],InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]," ",SqrtBox[RowBox[{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],
+0.`,AutoDelete -> True],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.479426\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"+",RowBox[{InterpretationBox[StyleBox["\"0.00462963\"",
+ShowStringCharacters -> False],0.004629629629629629`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"3\"",ShowStringCharacters -> False],3,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{InterpretationBox[StyleBox["\"-0.122417\"",ShowStringCharacters -> False],
+-0.12241743810962724`,AutoDelete -> True],"-",RowBox[{InterpretationBox[StyleBox[
+"\"0.0416667\"",ShowStringCharacters -> False],0.041666666666666664`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.000578704\"",ShowStringCharacters -> False],5.787037037037037`*^-4,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],
+4,Editable -> False]]}],"-",RowBox[{InterpretationBox[StyleBox["\"0.00000267918\"",
+ShowStringCharacters -> False],2.6791838134430725`*^-6,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"6\"",ShowStringCharacters -> False],6,Editable -> False]]}]}],"]"}],
+InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[{InterpretationBox[StyleBox["\"-0.122417\"",
+ShowStringCharacters -> False],-0.12241743810962724`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.0416667\"",ShowStringCharacters -> False],0.041666666666666664`,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]]}],"-",RowBox[{InterpretationBox[StyleBox["\"0.000578704\"",
+ShowStringCharacters -> False],5.787037037037037`*^-4,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"4\"",ShowStringCharacters -> False],4,Editable -> False]]}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.00000267918\"",ShowStringCharacters -> False],2.6791838134430725`*^-6,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"6\"",ShowStringCharacters -> False],
+6,Editable -> False]]}]}],"]"}],InterpretationBox[StyleBox["\"2\"",ShowStringCharacters -> False],
+2,Editable -> False]],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.\"",ShowStringCharacters -> False],0.`,AutoDelete -> True]," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{InterpretationBox[StyleBox["\"0.479426\"",ShowStringCharacters -> False],0.479425538604203`,
+AutoDelete -> True]," ","i"}],"+",RowBox[{InterpretationBox[StyleBox["\"0.00462963\"",
+ShowStringCharacters -> False],0.004629629629629629`,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"3\"",ShowStringCharacters -> False],3,Editable -> False]]}],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.0000964506\"",ShowStringCharacters -> False],9.645061728395061`*^-5,
+AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[StyleBox["\"5\"",ShowStringCharacters -> False],
+5,Editable -> False]]}],"+",RowBox[{InterpretationBox[StyleBox["\"0.000000669796\"",
+ShowStringCharacters -> False],6.69795953360768`*^-7,AutoDelete -> True]," ",SuperscriptBox[
+"i",InterpretationBox[StyleBox["\"7\"",ShowStringCharacters -> False],7,Editable -> False]]}],"+",RowBox[
+{InterpretationBox[StyleBox["\"0.00000000155045\"",ShowStringCharacters -> False],
+1.5504535957425188`*^-9,AutoDelete -> True]," ",SuperscriptBox["i",InterpretationBox[
+StyleBox["\"9\"",ShowStringCharacters -> False],9,Editable -> False]]}]}],"]"}],InterpretationBox[
+StyleBox["\"2\"",ShowStringCharacters -> False],2,Editable -> False]]}]]}],DecimalForm],
+StandardForm],"Output",CellLabel -> "Out[256]//DecimalForm= ",ExpressionUUID -> "04ec1ac8-f1e3-445d-9b8e-f6052589134a"]},
+Open],ExpressionUUID -> "6d7e6104-07e3-4323-a3bc-9fc86278b34b"],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"N","[",RowBox[{"rms","[",RowBox[{"4",",","0.5"}],"]"}],"]"}]],
+"Input",CellLabel -> "In[249]:= ",ExpressionUUID -> "595e8a44-2226-41c0-8964-005ccb274abb"],Cell[
+BoxData[
+RowBox[{"0.25`"," ",SqrtBox[RowBox[{RowBox[{"0.`","\[VeryThinSpace]"}],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[{RowBox[{"0.`","\[VeryThinSpace]"}],"+",RowBox[
+{"0.`"," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[{"0.479425538604203`"," ","i"}],"-",RowBox[
+{"0.000244140625`"," ",SuperscriptBox["i","4"]}]}],"]"}],"2"],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"-","0.12241743810962724`"}],"-",RowBox[{"0.03125`"," ",SuperscriptBox[
+"i","2"]}],"-",RowBox[{"0.0003662109375`"," ",SuperscriptBox["i","4"]}],"-",RowBox[
+{"1.9073486328125`*^-6"," ",SuperscriptBox["i","6"]}],"-",RowBox[{"3.725290298461914`*^-9"," ",SuperscriptBox[
+"i","8"]}]}],"]"}],"2"],"+",SuperscriptBox[RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[
+{RowBox[{"-","0.12241743810962724`"}],"+",RowBox[{"0.`"," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[
+{"0.03125`"," ",SuperscriptBox["i","2"]}],"-",RowBox[{"0.0003662109375`"," ",SuperscriptBox[
+"i","4"]}],"-",RowBox[{"1.9073486328125`*^-6"," ",SuperscriptBox["i","6"]}],"-",RowBox[
+{"3.725290298461914`*^-9"," ",SuperscriptBox["i","8"]}]}],"]"}],"2"],"+",SuperscriptBox[
+RowBox[{"Abs","[",RowBox[{RowBox[{"(",RowBox[{RowBox[{"0.`","\[VeryThinSpace]"}],"+",RowBox[
+{"0.`"," ","\[ImaginaryI]"}]}],")"}],"-",RowBox[{"0.479425538604203`"," ","i"}],"-",RowBox[
+{"0.000244140625`"," ",SuperscriptBox["i","4"]}],"-",RowBox[{"3.814697265625`*^-6"," ",SuperscriptBox[
+"i","6"]}],"-",RowBox[{"2.2351741790771484`*^-8"," ",SuperscriptBox["i","8"]}],"-",RowBox[
+{"5.820766091346741`*^-11"," ",SuperscriptBox["i","10"]}],"-",RowBox[{"5.684341886080802`*^-14"," ",SuperscriptBox[
+"i","12"]}]}],"]"}],"2"]}]]}],StandardForm],"Output",CellLabel -> "Out[249]= ",ExpressionUUID -> "8890de15-6f19-483b-9e5c-6722cab56526"]},
+Open],ExpressionUUID -> "556a247c-3ee7-4855-8c2f-bd9649e0cdec"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "13.3 for Wolfram Cloud 1.67 (October 4, 2023)"]
